@@ -2,11 +2,15 @@
   "name": "back-node",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node --watch src/index.js"
   },
   "keywords": [],
   "author": "ninjaherodev <ninjaherodev@gmail.com>",
   "license": "MIT",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "4.19.2"
+  }
 }

@@ -1,0 +1,10 @@
+GET http://localhost:3010
+
+### Para Crear un Pokemon
+POST http://localhost:3010
+Content-Type: application/json
+
+{ "name":"ditto",
+  "type": "normal",
+  "movies": ["transform"]
+}
