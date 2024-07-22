@@ -1,9 +1,6 @@
-import express from 'express'
+import {app} from './app.js'
 
-const app = express()
-app.disable('x-powered-by')
-
-const PORT = process.env.PORT ?? 3010
+const PORT = app.get('port')
 
 app.use((req, res , next) => {
     if(req.method !== 'POST') return next()
