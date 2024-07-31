@@ -1,11 +1,11 @@
 import { readJson } from '../util.js'
 // import movies from '../../movies.json' with { type: 'json' } // future
 import { randomUUID } from 'node:crypto'
-
+import { CustomError } from '../errors/CustomError.js'
 const movies = readJson('../movies.json')
 
 export class MovieService {
-  static findAll = async ({ genre }) => {
+  findAll = async ({ genre }) => {
     if (genre) {
       return movies.filter((movie) =>
         movie.genre.some((g) => g.toLowerCase() === genre.toLowerCase())
@@ -31,7 +31,7 @@ export class MovieService {
   static delete = async ({ id }) => {
     const movieIndex = movies.findIndex((movie) => movie.id === id)
     if (movieIndex === -1) {
-      throw new Error('movie not found')
+      throw new CustomError('movie not found', 404)
     }
     movies.splice(movieIndex, 1)
     return true
@@ -40,7 +40,7 @@ export class MovieService {
   static update = async ({ id, input }) => {
     const movieIndex = movies.findIndex((movie) => movie.id === id)
     if (movieIndex === -1) {
-      throw new Error('movie not found')
+      throw new CustomError('movie not found', 404)
     }
     movies[movieIndex] = {
       ...movies[movieIndex],

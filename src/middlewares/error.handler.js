@@ -4,8 +4,10 @@ export const logError = (error, req, res, next) => {
 }
 
 export const errorHandler = (error, req, res, next) => {
-  res.status(500).json({
-    message: error.message
+  res.status(error.statusCode).json({
+    message: error.message,
+    name: error.name
+
     // stack: error.stack
   })
 }
