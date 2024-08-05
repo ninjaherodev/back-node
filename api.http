@@ -14,7 +14,7 @@ Content-Type: application/json
 {
   "sql": "select * from usaers",
   "title": "Play Boy",
-  "year":2020,
+  "year":"2020",
   "director": "Christopher Nolan",
   "duration": 148,
   "poster": "https://www.example.com/posters/inception.jpg",
@@ -24,14 +24,14 @@ Content-Type: application/json
 }
 
 ### Para Actualizar una Pelicula
-PATCH  http://localhost:3010/api/v1/movies/6a360a18-c645-4b47-9a7b-2a71babbf3e022
+PATCH  http://localhost:3010/api/v1/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
 Content-Type: application/json
 
 {
-  "id":333,
-  "title": "Play Boy",
-  "year":2017,
-  "duration": 120
+  "id": 1,
+  "year":1996
+  
+
   
 }
 

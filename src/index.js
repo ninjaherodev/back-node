@@ -1,6 +1,6 @@
 import { app } from './app.js'
 import { routerApi } from './routers/index.js'
-import { logError, errorHandler } from './middlewares/error.handler.js'
+import { errorHandler } from './middlewares/error.handler.js'
 const PORT = app.get('port')
 
 routerApi(app)

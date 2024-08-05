@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-const movieSchema = z.object({
+export const movieSchema = z.object({
   title: z.string({
     invalid_type_error: 'movie title must be a string',
     required_error: 'movie title is required. please check url'
@@ -21,7 +21,11 @@ const movieSchema = z.object({
       'Fantasy',
       'Horror',
       'Thriller',
-      'Sci-Fi'
+      'Sci-Fi',
+      'Crime',
+      'Romance',
+      'Animation',
+      'Biography'
     ]),
     {
       invalid_type_error: 'movie genre is required',
@@ -30,10 +34,6 @@ const movieSchema = z.object({
   )
 })
 
-export const validateMovie = (object) => {
-  return movieSchema.safeParse(object)
-}
-
-export const validatePartialMovie = (object) => {
-  return movieSchema.partial().safeParse(object)
-}
+export const movieSchemaId = z.object({
+  id: z.string().uuid({ message: 'Invalid UUID format' })
+})

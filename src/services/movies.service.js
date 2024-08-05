@@ -5,7 +5,7 @@ import { CustomError } from '../errors/CustomError.js'
 const movies = readJson('../movies.json')
 
 export class MovieService {
-  findAll = async ({ genre }) => {
+  static findAll = async ({ genre }) => {
     if (genre) {
       return movies.filter((movie) =>
         movie.genre.some((g) => g.toLowerCase() === genre.toLowerCase())
@@ -16,6 +16,9 @@ export class MovieService {
 
   static findOne = async ({ id }) => {
     const movie = movies.find((movie) => movie.id === id)
+    if (!movie) {
+      throw new CustomError('Movie not found', 404)
+    }
     return movie
   }
 
